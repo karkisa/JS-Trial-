@@ -8,9 +8,11 @@ servers:
 paths: 
   /v1/weather:
     get:
-    
-      summary: Returns a user by ID
+      security:
+        - bearerAuth: []
       
+    
+
       # parameters:
         # - name: userId
         #   in: path
@@ -29,6 +31,8 @@ paths:
         # - $ref: '#/components/parameters/mode'
       
       responses:
+        '401':
+          $ref: '#/components/schemas/UnauthorizedError'
         '200':
           description: Successful response
   
@@ -42,9 +46,15 @@ paths:
                 
   /v1/hello:
     get:
+      security:
+        - bearerAuth: []
+      
       # parameters: 
       #   message:
       responses:
+        '401':
+          $ref: '#/components/schemas/UnauthorizedError'
+  
         '200':
           description: Successfull respose
           content:
@@ -85,6 +95,12 @@ paths:
       
                   
 components:
+  securitySchemes:
+    bearerAuth:            # arbitrary name for the security scheme
+      type: http
+      scheme: bearer
+      bearerFormat: JWT    # optional, arbitrary value for documentation purposes
+
 
   # parameters:
   #   q:
@@ -167,6 +183,10 @@ components:
         token: 
           type: string 
           example: "Error400"
+          
+    UnauthorizedError:
+      description: Access token is missing or invalid
+
     
     200:
       title: Successful response
