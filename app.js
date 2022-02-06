@@ -12,6 +12,25 @@ app.use(bodyParser.json());
 
 const JWT_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6InNhZ2FyLXRlc3QtdXNlciIsImlhdCI6MTY0NDE4MDk0MH0.HGoT3-74z1C1-38JZze9IbBCtA8zegyOMFocbpmrVXw"
 
+app.use(function (req, res, next) {
+    // Website you wish to allow to connect
+    const allowedOrigins = ['https://editor.swagger.io', 'https://hoppscotch.io'];
+    const origin = req.headers.origin;
+    
+    if (allowedOrigins.includes(origin)) {
+        res.setHeader('Access-Control-Allow-Origin', origin);
+    }
+    
+    // Request methods you wish to allow eg: GET, POST, OPTIONS, PUT, PATCH, DELETE
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type,Authorization');
+
+    // Pass to next layer of middleware
+    next();
+});
+
 app.get('/v1/weather', (req, res) => {
 	var tokenHeader = req.headers["authorization"]
 
