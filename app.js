@@ -19,8 +19,8 @@ app.post('/v1/auth', (req, res) => {
 
 	if (username && password) {
 		res.json({
-			"Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
-			"expires": "2012-04-23T18:25:43.511Z"
+			"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6InNhZ2FyLXRlc3QtdXNlciIsImlhdCI6MTY0NDE4MDk0MH0.HGoT3-74z1C1-38JZze9IbBCtA8zegyOMFocbpmrVXw",
+			"expires": "2022-02-06T18:25:43.511Z"
 
 		})
 
