@@ -1,3 +1,8 @@
+/**
+ * CS561 ExpressJS Server
+ * This server implements REST APIs to server mock resources
+ * Author: Sagar Karki
+ */
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
