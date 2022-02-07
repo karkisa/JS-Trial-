@@ -4,7 +4,7 @@ info:
   title: Swagger Demo for CS561 
   description: Mock APIs
 servers:
-  - url: http://localhost:3000
+  - url: http://ec2-54-164-146-132.compute-1.amazonaws.com:3000
 paths: 
   /v1/weather:
     get:
