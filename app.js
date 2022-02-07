@@ -14,7 +14,7 @@ const JWT_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkw
 
 app.use(function (req, res, next) {
     // Website you wish to allow to connect
-    const allowedOrigins = ['https://editor.swagger.io', 'https://hoppscotch.io'];
+    const allowedOrigins = ['https://editor.swagger.io', 'https://hoppscotch.io','http://ec2-54-164-146-132.compute-1.amazonaws.com:3002'];
     const origin = req.headers.origin;
     
     if (allowedOrigins.includes(origin)) {
